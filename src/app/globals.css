@@ -85,7 +85,7 @@ body {
   }
 }
 
-/* @media screen and (max-width: 280px) {
+@media screen and (max-width: 280px) {
     .hero_section {
     background: url(../../public/images/herobg_sm.png);
     background-repeat: no-repeat;
@@ -94,12 +94,12 @@ body {
     height: 100vh;
     width: 100dvw;
   }
-} */
+}
 
 
 
 header {
-  /* background: url(../../public/images/header.png), lightgray -13.56px -669.524px / 109.789% 552.381% no-repeat; */
+  background: url(../../public/images/header.png), lightgray -13.56px -669.524px / 109.789% 552.381% no-repeat;
   background: transparent
 }
 
@@ -115,3 +115,26 @@ header {
   cursor: pointer;
 }
 
+.mobile-menu {
+  background: url(../../public/images/bg.png)
+}
+
+ul.navbar-list {
+  display: flex;
+  background-color: black;
+  padding: 1rem; /* Add padding as needed */
+}
+
+ul.navbar-list li {
+  margin-right: 1rem; /* Add margin between items as needed */
+  list-style: none; /* Remove the default list bullet points */
+}
+
+ul.navbar-list a {
+  color: white;
+  text-decoration: none;
+}
+
+ul.navbar-list a:hover {
+  color: #F1AC74; /* Change the hover color as desired */
+}

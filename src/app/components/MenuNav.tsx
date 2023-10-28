@@ -11,12 +11,27 @@ import navClose from "@/public/images/nav-close.png";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(0);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+    const handleItemClick = (index: React.SetStateAction<number>) => {
+    setSelectedItem(index);
+  };
+
+  const navItems = [
+    { label: "Burger", href: "/menu" },
+    { label: "Fries", href: "/menu/fries" },
+    { label: "Shawarma", href: "/menu/shawarma" },
+    { label: "Rice", href: "/menu/rice" },
+    { label: "Pasta", href: "/menu/pasta" },
+    { label: "Drinks", href: "/menu/drinks" },
+  ];
+
   return (
+  <>
     <header className="fixed w-full top-0">
       <nav className="sm:hidden flex justify-between items-center">
         <button
@@ -33,15 +48,9 @@ const Navbar: React.FC = () => {
             <Image src={navOpen} alt="" className="ml-4" />
           )}
         </button>
-        <div>
-          <Link
-            href="/"
-            className="text-white text-lg font-bold"
-            onClick={handleMenuToggle}
-          >
-            <Image src={lazylogo} alt="" />
-          </Link>
-        </div>
+        <h2 className="text-[#F1AC74] text-xl font-Trap font-bold p-6">
+            MENU
+        </h2>
         <div className="mr-4">
           <Image src={cartIcon} alt="" />
         </div>
@@ -126,6 +135,25 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
     </header>
+     <div className="overflow-x-auto">
+        <ul className="flex md:justify-center md:items-center md:mx-auto mt-12 p-4 space-x-4 text-white" style={{ width: `${navItems.length * 200}px` }}>
+          {navItems.map((item, index) => (
+            <li key={item.label}>
+              <Link href={item.href}>
+                <span
+                  onClick={() => handleItemClick(index)}
+                  className={`text-white hover:text-[#F1AC74] ${
+                    selectedItem === index ? "border-b-2 pb-2 border-[#F1AC74]" : ""
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+  </>
   );
 };
 

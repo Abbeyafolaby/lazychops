@@ -1,9 +1,8 @@
-// import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MenuNav from "../components/MenuNav";
 
 export const metadata = {
-  title: "LazyChops",
+  title: "Menu",
   description: "Home of the best homemade foods at your door",
 };
 
@@ -14,9 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Navbar />
+      <MenuNav />
       <body>{children}</body>
-      <Footer />
     </html>
   );
 }
